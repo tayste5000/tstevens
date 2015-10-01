@@ -1,0 +1,182 @@
+/* link colorss */
+a{
+	color: $link-color;
+
+	&:hover, &:focus{
+		color: $link-color-active;
+	}
+
+	&:visited{
+		color: $link-color-visited;
+	}
+}
+
+.navbar{
+	@extend .clearfix;
+	@include navbar;
+
+	&__title{
+		@include navbar-title;
+	}
+
+	&__button{
+		@include navbar-button;
+	}
+
+	&__collapse{
+		@include navbar-collapse;
+	}
+
+	&__item{
+		@include navbar-item;
+	}
+}
+
+.main{
+	padding-top: $navbar-height;
+}
+
+.header{
+	@extend .global-header;
+}
+
+.body{
+	@include container;
+
+	padding-top: $gutter * 2;
+	padding-bottom: $gutter * 2;
+
+	&__row{
+		@include row;
+		@include clearfix;
+	}
+	
+	&__item{
+		@include column;
+		@include column-span(2,2);
+
+		margin-bottom: $gutter;
+
+		@include small{
+			@include column-span(1,2);
+		}
+	}
+}
+
+
+.footer{
+	width: 100%;
+
+	background-color: $footer-background-color;
+	color: $footer-color;
+	padding: $gutter;
+	
+	&__item-row{
+		@include row;
+		@include clearfix;
+	}
+
+	&__item{
+		@include column;
+		@include column-span(1,2);
+		margin-bottom: $gutter;
+
+		&:first-child{
+			@include column-span(2,2);
+
+			&>p{
+				text-align: center;
+			}
+		}
+
+		@include small{
+			@include column-span(1,3);
+
+			&:first-child{
+				@include column-span(1,3);
+			}
+		}
+	}
+
+	&__nav{
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+
+		&>li>a{
+			text-decoration: none;
+			color: inherit;
+		}
+	}
+
+	&__copyright{
+		text-align: right;
+		font-size: $small-font-size;
+		
+		@include tablet{
+			font-size: $p-font-size;
+		}
+	
+		>a{
+			text-decoration: none;
+			color: inherit;
+		}
+	}
+}
+
+.connect{
+	@include clearfix;
+	@include row;
+
+	margin-bottom: $gutter;
+
+	&__item{
+		@include column;
+		@include column-span(1,3);
+	}
+
+	&__icon{
+		display: block;
+		text-align: center;
+
+		height: $connect-button-size;
+		padding: ($connect-button-size - $connect-icon-size) / 2 0;
+		transition: color $animation-time, background-color $animation-time;
+
+		&>i{
+			font-size: $connect-icon-size;
+			line-height: 1.0;
+		}
+	
+		&.facebook{
+			background-color: $facebook-background-color;
+	    color: $facebook-color;
+
+	    &:hover, &:focus{
+				background-color: $facebook-background-color-active;
+				color: $facebook-color-active;
+	    }
+		}
+
+		&.twitter{
+			background-color: $twitter-background-color;
+	    color: $twitter-color;
+
+	    &:hover, &:focus{
+				background-color: $twitter-background-color-active;
+				color: $twitter-color-active;
+	    }
+		}
+
+		&.instagram{
+			background-color: $instagram-background-color;
+	    color: $instagram-color;
+
+	    &:hover, &:focus{
+				background-color: $instagram-background-color-active;
+				color: $instagram-color-active;
+	    }
+		}
+
+	}
+}

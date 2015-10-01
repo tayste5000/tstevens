@@ -1,0 +1,33 @@
+{
+  "name": "go-seed",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/tayste5000/go-seed.git"
+  },
+  "keywords": [
+    "golang",
+    "sass",
+    "seed",
+    "template",
+    "boilerplate"
+  ],
+  "author": "Taylor Stevens <tayste5000@gmail.com> (https://github.com/tayste5000)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tayste5000/go-seed/issues"
+  },
+  "homepage": "https://github.com/tayste5000/go-seed#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.0.2",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.0.4"
+  }
+}

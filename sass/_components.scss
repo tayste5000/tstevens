@@ -1,0 +1,170 @@
+/* common mixins */
+@mixin shadow-outer($depth){
+	box-shadow: 0 1px $depth*1px rgba(0,0,0,0.3), 0 2px $depth*1.5px rgba(0,0,0,0.2);
+}
+
+@mixin shadow-inner($depth){
+	box-shadow: 0 1px $depth*1px rgba(0,0,0,0.3), 0 2px $depth*1.5px rgba(0,0,0,0.2);
+}
+
+@mixin shadow-text($depth){
+	box-shadow: 0 1px $depth*1px rgba(0,0,0,0.3), 0 2px $depth*1.5px rgba(0,0,0,0.2);
+}
+
+@mixin clearfix{
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin navbar{
+	position: fixed;
+	z-index: 1000;
+	top: 0;
+	width: 100%;
+	overflow-y: hidden;
+
+	padding: 0 $gutter / 2;
+	transition: height $animation-time;
+	height: $navbar-height;
+	max-height: $navbar-max-height;
+	background-color: $navbar-background-color;
+	color: $navbar-color;
+}
+
+
+@mixin navbar-title{
+	display: inline-block;
+	
+	&>a{
+		display: inline-block;
+		margin: 0;
+		text-decoration: none;
+		color: inherit;
+
+		font-size: $navbar-title-size;
+		padding: ((($navbar-height - $navbar-title-size * $heading-line-height) / 2) / $navbar-title-size) * 1em $gutter / 2;
+		line-height: $heading-line-height;
+		transition: color $animation-time;
+
+		&:hover, &:focus{
+			color: $navbar-color-active;
+			background-color: $navbar-background-color-active;
+		}
+	}
+}
+
+@mixin navbar-button{
+	width: $navbar-icon-width;
+	padding: ($navbar-height - (3 * $navbar-icon-height + 2 * $navbar-icon-spacing)) / 2 $gutter / 2;
+	float: right;
+	cursor: pointer;
+
+	@include small{
+		display: none;
+	}
+
+	&-icon{
+		width: 100%;
+
+	  height: $navbar-icon-height;
+	  margin-bottom: $navbar-icon-spacing;
+	  border-radius: $navbar-icon-radius;
+	  background-color: $navbar-color;
+	  transition: background-color $animation-time;
+
+	  &:last-child{
+	  	margin-bottom: 0;
+	  }
+	}
+
+	&:hover, &:focus{
+		background-color: $navbar-background-color-active;
+		&-icon{
+			background-color: $navbar-color-active;
+		}
+	}
+}
+
+@mixin navbar-collapse{
+	@include small{
+		float: right;
+		display: block;
+	}
+}
+
+@mixin navbar-item{
+	@include small{
+		display: inline-block;
+		font-size: 1rem;
+	}
+
+	&>a{
+		display: block;
+		color: inherit;
+		text-decoration: none;
+
+		line-height: $heading-line-height;
+		font-size: $navbar-item-size;
+
+		padding: ($navbar-height - $navbar-item-size * $heading-line-height) / 2 $gutter / 2;
+		transition: color $animation-time, background-color $animation-time;
+	}
+
+	&.active>a, &>a:hover, &>a:focus{
+		color: $navbar-color-active;
+		background-color: $navbar-background-color-active;
+	}
+
+	&-list{
+		padding: 0;
+		margin: 0;
+		list-style-type: none;
+
+		@include small{
+			font-size: 0;
+		}
+	}
+}
+
+/* extendable classes */
+.shadow-2{
+	@include shadow-outer(2);
+}
+
+.shadow-4-hover{
+	transition: box-shadow $animation-time;
+
+	&:hover, &:focus{
+		@include shadow-outer(4);
+	}
+}
+
+.clearfix{
+	@include clearfix;
+}
+
+.global-header{
+	width: 100%;
+
+	height: $header-height;
+	background: $header-background;
+	padding-top: ($header-height - $heading-line-height * $h2-font-size) / 2;
+	padding-left: $gutter;
+	font-weight: 400;
+	
+	&>h1, &>h2{
+		font-weight: inherit;
+		color: $header-color;
+	}
+
+	&>h1{
+		font-size: $h2-font-size;
+	}
+
+	&>h2{
+		font-size: $h3-font-size;
+	}
+}

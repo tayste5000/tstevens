@@ -1,0 +1,106 @@
+/*
+
+_variables.scss
+
+contains variables for:
+	
+	-grid layout
+	-responsive breakpoints
+	-typography
+	-colors
+	-animation
+	-borders
+	-link styling
+	-navbar styling
+	-header styling
+	-footer styling
+	-icon styling
+
+*/
+
+/* grid layout */
+$gutter: 2em;
+
+
+/* responsive breakpoints */
+$tablet: 480px;
+$small: 768px;
+$medium: 1000px;
+$max-size: 1250px;
+
+
+/* typography */
+$font-scale: 1.4;
+$p-font-size: 1em;
+$h4-font-size: $p-font-size * $font-scale;
+$h3-font-size: $h4-font-size * $font-scale;
+$h2-font-size: $h3-font-size * $font-scale;
+$h1-font-size: $h2-font-size * $font-scale;
+$small-font-size: $p-font-size / $font-scale;
+$body-line-height: 1.45;
+$heading-line-height: 1.2;
+$heading-margin-top: 1.414em;
+$heading-margin-bottom: 0.5em;
+
+
+/* colors */
+$site-black: #333;
+$site-white: #fdfdfd;
+$body-background-color: $site-white;
+$body-text-color: $site-black;
+
+
+/* animation time */
+$animation-time: 0.3s;
+
+
+/* border params */
+$border-radius: 3px;
+$border-width: 1px;
+$border-color: $site-black;
+
+
+/* link color */
+$link-color: initial;
+$link-color-active: initial;
+$link-color-visited: initial;
+
+/* navbar properties */
+$navbar-height: $p-font-size * 4;
+$navbar-max-height: $navbar-height * 6;
+$navbar-background-color: $site-white;
+$navbar-background-color-active: initial;
+$navbar-color: $site-black;
+$navbar-color-active: initial;
+$navbar-icon-height: 0.25em;
+$navbar-icon-spacing: 0.25em;
+$navbar-icon-width: 4em;
+$navbar-icon-radius: $border-radius;
+$navbar-title-size: $h4-font-size;
+$navbar-item-size: $p-font-size;
+
+/* header properties */
+$header-height: 20em;
+$header-background: $site-black;
+$header-color: $site-white;
+
+/* footer properties */
+$footer-background-color: #aaa;
+$footer-color: $site-white;
+
+
+/* icons */
+$connect-button-size: 4em;
+$connect-icon-size: $h3-font-size;
+$facebook-color: #eee;
+$facebook-color-active: #fff;
+$facebook-background-color: #45619D;
+$facebook-background-color-active: #496DBA;
+$twitter-color: #eee;
+$twitter-color-active: #fff;
+$twitter-background-color: #659FCB;
+$twitter-background-color-active: #4D9FDD;
+$instagram-color: #eee;
+$instagram-color-active: #fdfdfd;
+$instagram-background-color: #125688;
+$instagram-background-color-active: #1168A8;

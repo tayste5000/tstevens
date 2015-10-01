@@ -1,0 +1,46 @@
+@mixin column{
+	float: left;
+	position: relative;
+	min-height: 1px;
+	padding: 0 $gutter / 2;
+}
+
+@mixin column-span($span, $total){
+	width: $span / $total * 100%;
+}
+
+@mixin row{
+	
+	margin-right: - $gutter / 2;
+	margin-left: - $gutter / 2;
+}
+
+@mixin container{
+	max-width: $max-size;
+	padding: 0 $gutter / 2;
+	margin: 0 auto;
+}
+
+@mixin row-inline{
+	margin-right: - 1rem * ($gutter / 1em) / 2;
+	margin-left: - 1rem * ($gutter / 1em) / 2;
+	white-space: nowrap;
+	font-size: 0;
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+
+@mixin column-inline{
+	display: inline-block;
+	min-height: 1px;
+	white-space: normal;
+	font-size: 1rem;
+}
+
+@mixin push-right($span, $total){
+	margin-right: $span / $total * 100%;
+}
+
+@mixin push-left($span, $total){
+	margin-left: $span / $total * 100%;
+}

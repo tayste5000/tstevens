@@ -11,6 +11,7 @@
 	<title>{{template "title" . }}</title>
 
 	<link rel="stylesheet" type="text/css" href="/public/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/public/css/font-awesome/css/font-awesome.min.css">
 
 </head>
 
@@ -36,6 +37,45 @@
 </nav>
 
 {{ template "body" . }}
+
+<footer class="footer">
+
+	<div class="footer__item-row">
+		<div class="footer__item">
+			<p><strong>Connect</strong></p>
+			<div id="connect" class="connect">
+				<div class="connect__item">
+					<a href="#" target="_blank" class="connect__icon facebook"><i class="fa fa-facebook"></i></a>
+				</div>
+				<div class="connect__item">
+					<a href="#" target="_blank" class="connect__icon twitter"><i class="fa fa-twitter"></i></a>
+				</div>
+				<div class="connect__item">
+					<a href="#" target="_blank" class="connect__icon instagram"><i class="fa fa-instagram"></i></a>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer__item">
+			<p><strong>Pages</strong></p>
+			<ul class="footer__nav">
+				<li><a href="/">Item</a></li>
+				<li><a href="/">Item</a></li>
+				<li><a href="/">Item</a></li>
+				<li><a href="/">Item</a></li>
+			</ul>
+		</div>
+
+		<div class="footer__item">
+			<p><strong>Other links</strong></p>
+			<ul class="footer__nav">
+				<li><a href="/site-map/">Site map</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<p class="footer__copyright">&copy;&nbsp;<a href="http://isotropic.io/" target="_blank">isotropic</a> web development all rights reserved</p>
+</footer>
 
 <script type="text/javascript" src="/public/js/animations.js"></script>
 

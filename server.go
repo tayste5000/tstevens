@@ -8,7 +8,7 @@ import(
 	"github.com/zenazn/goji"
 
 	//internal
-	"github.com/tayste5000/go-seed/routes"
+	"github.com/tayste5000/tstevens/routes"
 )
 
 func main() {

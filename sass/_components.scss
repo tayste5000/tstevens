@@ -53,6 +53,11 @@
 			color: $navbar-color-active;
 			background-color: $navbar-background-color-active;
 		}
+
+		&>img{
+			height: 2 * $p-font-size;
+			margin: -0.5 * $p-font-size;
+		}
 	}
 }
 
@@ -150,21 +155,40 @@
 	width: 100%;
 
 	height: $header-height;
-	background: $header-background;
-	padding-top: ($header-height - $heading-line-height * $h2-font-size) / 2;
-	padding-left: $gutter;
+	background-color: $header-background;
+	background-image: url(http://www.transparenttextures.com/patterns/subtle-zebra-3d.png);
+	padding-top: ($header-height - $heading-line-height * $h3-font-size) / 2;
+
+	@include small{
+		padding-top: ($header-height - $heading-line-height * $h2-font-size) / 2;
+	}
+
+	padding-left: $gutter / 2;
 	font-weight: 400;
 	
 	&>h1, &>h2{
+		@extend .accent-font;
+
 		font-weight: inherit;
 		color: $header-color;
+		margin: 0;
 	}
 
 	&>h1{
-		font-size: $h2-font-size;
+		font-size: $h3-font-size;
+
+		@include small{
+			font-size: $h2-font-size;
+		}
 	}
 
 	&>h2{
-		font-size: $h3-font-size;
+		font-size: $h4-font-size;
+		font-style: italic;
+		color: #99e;
+
+		@include small{
+			font-size: $h3-font-size;
+		}
 	}
 }

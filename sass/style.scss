@@ -13,6 +13,7 @@ a{
 
 .navbar{
 	@extend .clearfix;
+	@extend .shadow-2;
 	@include navbar;
 
 	&__title{
@@ -46,6 +47,29 @@ a{
 	padding-top: $gutter * 2;
 	padding-bottom: $gutter * 2;
 
+	&--bold{
+		font-size: $h4-font-size;
+		font-weight: 700;
+	}
+
+	&__portrait{
+		border-radius: $border-radius;
+		float: left;
+		margin-right: $gutter / 2;
+		//margin-bottom: $gutter / 2;
+
+		width: 75px;
+
+		@include small{
+			width: auto;
+		}
+	}
+
+	&__shadow{
+		@extend .shadow-2;
+		position: relative;
+	}
+
 	&__row{
 		@include row;
 		@include clearfix;
@@ -59,6 +83,7 @@ a{
 
 		@include small{
 			@include column-span(1,2);
+			@include push-left(1,4);
 		}
 	}
 }
@@ -136,12 +161,16 @@ a{
 	}
 
 	&__icon{
+		@extend .shadow-2;
+		@extend .shadow-4-hover;
+
 		display: block;
 		text-align: center;
 
+		border-radius: $border-radius;
 		height: $connect-button-size;
 		padding: ($connect-button-size - $connect-icon-size) / 2 0;
-		transition: color $animation-time, background-color $animation-time;
+		transition: color $animation-time, background-color $animation-time, box-shadow $animation-time;
 
 		&>i{
 			font-size: $connect-icon-size;

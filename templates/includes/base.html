@@ -12,6 +12,7 @@
 
 	<link rel="stylesheet" type="text/css" href="/public/css/style.css">
 	<link rel="stylesheet" type="text/css" href="/public/css/font-awesome/css/font-awesome.min.css">
+	<link rel="icon" href="/public/icons/flask.ico">
 
 </head>
 
@@ -19,7 +20,7 @@
 
 <nav class="navbar">
 	<div class="navbar__title">
-		<a href="/">Title</a>
+		<a href="/"><img src="/public/icons/large-icon.png"></a>
 	</div>
 	<button class="navbar__button">
 		<div class="navbar__button-icon"></div>
@@ -28,15 +29,18 @@
 	</button>
 	<div class="navbar__collapse">
 		<ul class="navbar__item-list">
-			<li class="navbar__item"><a href="#">Link</a></li>
-			<li class="navbar__item"><a href="#">Link</a></li>
-			<li class="navbar__item"><a href="#">Link</a></li>
-			<li class="navbar__item"><a href="#">Link</a></li>
+			<li class="navbar__item"><a href="/projects">Projects</a></li>
+			<li class="navbar__item"><a href="/resume">Resume</a></li>
+			<li class="navbar__item"><a href="/contact">Contact</a></li>
 		</ul>
 	</div>
 </nav>
 
+<div class="main">
+	
 {{ template "body" . }}
+
+</div>
 
 <footer class="footer">
 
@@ -45,13 +49,13 @@
 			<p><strong>Connect</strong></p>
 			<div id="connect" class="connect">
 				<div class="connect__item">
-					<a href="#" target="_blank" class="connect__icon facebook"><i class="fa fa-facebook"></i></a>
+					<a href="#" target="_blank" class="connect__icon facebook"><i class="fa fa-linkedin"></i></a>
 				</div>
 				<div class="connect__item">
-					<a href="#" target="_blank" class="connect__icon twitter"><i class="fa fa-twitter"></i></a>
+					<a href="#" target="_blank" class="connect__icon twitter"><i class="fa fa-github"></i></a>
 				</div>
 				<div class="connect__item">
-					<a href="#" target="_blank" class="connect__icon instagram"><i class="fa fa-instagram"></i></a>
+					<a href="#" target="_blank" class="connect__icon instagram"><i class="fa fa-medium"></i></a>
 				</div>
 			</div>
 		</div>
@@ -59,17 +63,17 @@
 		<div class="footer__item">
 			<p><strong>Pages</strong></p>
 			<ul class="footer__nav">
-				<li><a href="/">Item</a></li>
-				<li><a href="/">Item</a></li>
-				<li><a href="/">Item</a></li>
-				<li><a href="/">Item</a></li>
+				<li><a href="/projects">Projects</a></li>
+				<li><a href="/resume">Resume</a></li>
+				<li><a href="/contacts">Contact</a></li>
 			</ul>
 		</div>
 
 		<div class="footer__item">
 			<p><strong>Other links</strong></p>
 			<ul class="footer__nav">
-				<li><a href="/site-map/">Site map</a></li>
+				<li><a href="/site-map">Site map</a></li>
+				<li><a href="/faq">FAQ</a></li>
 			</ul>
 		</div>
 	</div>

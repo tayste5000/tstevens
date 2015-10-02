@@ -8,15 +8,18 @@ import(
 	"github.com/zenazn/goji/web"
 
 	//internal
-	"github.com/tayste5000/go-seed/templates"
+	"github.com/tayste5000/tstevens/templates"
 )
 
 func Add(mux *web.Mux) {
 	
 	/* Endpoint to handler config */
 	mux.Get("/", home)
-	mux.Get("/home", about)
-	mux.Use(mux.Router)
+	mux.Get("/projects", projects)
+	mux.Get("/resume", resume)
+	mux.Get("/contact", contact)
+	mux.Get("/site-map", siteMap)
+	mux.Get("/faq", faq)
 
 }
 
@@ -24,24 +27,42 @@ func Add(mux *web.Mux) {
 
 func home(c web.C, w http.ResponseWriter, r *http.Request){
 
-	// ourname := make(map[string]interface{})
- 
-	// ourname["First"] = "Billy"
-	// ourname["Last"] = "Bob"
-
 	if err := templates.Render(w, "home.html", nil); err != nil {
 	  http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 }
 	
-func about(c web.C, w http.ResponseWriter, r *http.Request){
+func projects(c web.C, w http.ResponseWriter, r *http.Request){
 
-	// ourname := make(map[string]interface{})
+	if err := templates.Render(w, "projects.html", nil); err != nil {
+	  http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+}
 
-	// ourname["First"] = "Billy"
-	// ourname["Last"] = "Bob"
+func resume(c web.C, w http.ResponseWriter, r *http.Request){
 
-	if err := templates.Render(w, "about.html", nil); err != nil {
+	if err := templates.Render(w, "resume.html", nil); err != nil {
+	  http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+}
+
+func contact(c web.C, w http.ResponseWriter, r *http.Request){
+
+	if err := templates.Render(w, "contact.html", nil); err != nil {
+	  http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+}
+
+func siteMap(c web.C, w http.ResponseWriter, r *http.Request){
+
+	if err := templates.Render(w, "site-map.html", nil); err != nil {
+	  http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+}
+
+func faq(c web.C, w http.ResponseWriter, r *http.Request){
+
+	if err := templates.Render(w, "faq.html", nil); err != nil {
 	  http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 }

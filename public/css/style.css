@@ -62,6 +62,14 @@ button::-moz-focus-inner {
 button:focus, button:hover {
   outline: none; }
 
+input[type="text"], textarea {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  padding: 0; }
+  input[type="text"]:focus, textarea:focus {
+    outline: none; }
+
 body {
   background-color: #fdfdfd;
   color: #333;
@@ -95,16 +103,16 @@ h4 {
 
 /* common mixins */
 /* extendable classes */
-.shadow-2, .navbar, .body__shadow, .connect__icon {
+.shadow-2, .navbar, .body__shadow, .connect__icon, .param2drive__button, .p2drive-results__button {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 2px 3px rgba(0, 0, 0, 0.2); }
 
-.shadow-4-hover, .connect__icon {
+.shadow-4-hover, .connect__icon, .param2drive__button, .p2drive-results__button {
   -webkit-transition: box-shadow 0.3s;
           transition: box-shadow 0.3s; }
-  .shadow-4-hover:hover, .connect__icon:hover, .shadow-4-hover:focus, .connect__icon:focus {
+  .shadow-4-hover:hover, .connect__icon:hover, .param2drive__button:hover, .p2drive-results__button:hover, .shadow-4-hover:focus, .connect__icon:focus, .param2drive__button:focus, .p2drive-results__button:focus {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 2px 6px rgba(0, 0, 0, 0.2); }
 
-.clearfix:after, .navbar:after {
+.clearfix:after, .navbar:after, .p2drive-results__button-container:after {
   content: "";
   display: table;
   clear: both; }
@@ -245,7 +253,8 @@ a {
     width: 75px; }
     @media (min-width: 768px) {
       .body__portrait {
-        width: auto; } }
+        width: auto;
+        width: 150px; } }
   .body__shadow {
     position: relative; }
   .body__row {
@@ -355,3 +364,98 @@ a {
       .connect__icon.instagram:hover, .connect__icon.instagram:focus {
         background-color: #1168A8;
         color: #fdfdfd; }
+
+.param2drive__flash {
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 5px;
+  font-weight: 700; }
+  .param2drive__flash.error {
+    background-color: #fdd;
+    color: #f77;
+    border-color: #f77; }
+  .param2drive__flash.success {
+    background-color: #dfd;
+    color: #7d7;
+    border-color: #7d7; }
+
+.param2drive > #p2d-features-label.invalid-features::before {
+  content: "There must be atleast one feature to compute";
+  color: #f99;
+  font-weight: 700;
+  display: block; }
+
+.param2drive__input-container {
+  padding: 1em 0; }
+  .param2drive__input-container > label {
+    -webkit-transition: color 0.1s;
+            transition: color 0.1s;
+    display: block; }
+  .param2drive__input-container.invalid-sequence > input[type="text"], .param2drive__input-container.invalid-sequence > textarea, .param2drive__input-container.invalid-range > input[type="text"], .param2drive__input-container.invalid-range > textarea, .param2drive__input-container.invalid-range-length > input[type="text"], .param2drive__input-container.invalid-range-length > textarea, .param2drive__input-container.invalid-name > input[type="text"], .param2drive__input-container.invalid-name > textarea {
+    border-color: #f99;
+    box-shadow: inset 0 0px 1px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(0, 0, 0, 0.2), 0 0 8px rgba(255, 153, 153, 0.6); }
+  .param2drive__input-container.invalid-sequence::before, .param2drive__input-container.invalid-range::before, .param2drive__input-container.invalid-range-length::before, .param2drive__input-container.invalid-name::before {
+    color: #f99;
+    font-weight: 700; }
+  .param2drive__input-container.invalid-name::before {
+    content: "Must enter a protein name"; }
+  .param2drive__input-container.invalid-sequence::before {
+    content: "Must be a valid amino acid sequence"; }
+  .param2drive__input-container.invalid-range-length::before {
+    content: "Range length does not match sequence length"; }
+  .param2drive__input-container.invalid-range::before {
+    content: "Must be a residue range of the form #-# eg. 20-68"; }
+  .param2drive__input-container > input[type="text"], .param2drive__input-container > textarea {
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3), inset 0 2px 3px rgba(0, 0, 0, 0.2);
+    font-size: inherit;
+    font-family: inherit;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    padding: 0.5em;
+    -webkit-transition: border-color 0.1s, box-shadow 0.1s;
+            transition: border-color 0.1s, box-shadow 0.1s; }
+    .param2drive__input-container > input[type="text"]:focus, .param2drive__input-container > textarea:focus {
+      border-color: #99f;
+      box-shadow: inset 0 0px 1px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(0, 0, 0, 0.2), 0 0 8px rgba(153, 153, 255, 0.6); }
+
+.param2drive__button {
+  border-radius: 3px;
+  padding: 1em; }
+  .param2drive__button:hover {
+    cursor: pointer; }
+
+.p2drive-results__text {
+  background: #fff;
+  border: 1px solid #333;
+  font-family: monospace;
+  padding: 1em; }
+
+.p2drive-results__button {
+  padding: 1em;
+  border-radius: 3px;
+  -webkit-transition: color 0.3s, background-color 0.3s, box-shadow 0.3s;
+          transition: color 0.3s, background-color 0.3s, box-shadow 0.3s; }
+  .p2drive-results__button:hover {
+    cursor: pointer; }
+  .p2drive-results__button.undo {
+    float: left; }
+    .p2drive-results__button.undo:hover, .p2drive-results__button.undo:focus {
+      background-color: #fff;
+      color: #000; }
+  .p2drive-results__button.drive {
+    float: right;
+    background-color: #4584EF;
+    color: #eee; }
+    .p2drive-results__button.drive:hover, .p2drive-results__button.drive:focus {
+      background-color: #2A79FF;
+      color: #fdfdfd; }
+
+.drive-profile {
+  border-radius: 25px;
+  margin-left: 10px;
+  vertical-align: middle; }
+
+hr {
+  border-color: #ccc;
+  border-style: solid;
+  border-top-width: 0; }

@@ -1,0 +1,100 @@
+{{ define "title" }}Home{{ end }}
+
+{{ define "body"}}
+
+<div class="header">
+	<h1>Param2Drive</h1>
+</div>
+
+<div class="body__shadow">
+	
+<div class="body">
+	<div class="body__row">
+		<div class="body__item projects">
+			<p>
+				You are currently logged in as:
+				<br><br><strong>{{ .Name }}</strong>
+				<img class="drive-profile" src="
+					{{ if .Image }}
+					{{ .Image }}
+					{{ else }}
+					http://placehold.it/50x50
+					{{ end }}
+				">
+				<br><br><a href="/projects/p2drive/auth/logout">Log Out</a>
+			</p>
+			<hr>
+			{{ if .ErrorFlash }}
+			<div class="param2drive__flash error">
+				<ul>
+				{{ range $index, $value := .ErrorFlash }}
+					<li>{{ $value }}</li>
+				{{ end }}
+				</ul>
+			</div>
+			{{ end }}
+			{{ if .SuccessFlash }}
+			<div class="param2drive__flash success">
+				<ul>
+					<li>File was successfully submitted to your drive,&nbsp;
+						<a target="_blank" href="{{ .SuccessFlash }}">view here</a>
+					</li>
+				</ul>
+			</div>
+			{{ end }}
+			<form id="p2d-form" class="param2drive" action="/projects/p2drive/input" method="POST">
+				<div class="param2drive__input-container">
+					<label for="p2d-name">Name</label>
+					<input name="Name" id="p2d-name" type="text">
+				</div>
+
+				<div class="param2drive__input-container">
+					<label for="#p2d-sequence">Sequence</label>
+					<textarea name="Sequence" id="p2d-sequence" rows="10"></textarea>
+				</div>
+
+				<div class="param2drive__input-container">
+					<label for="#p2d-aa-range">Amino Acid Range</label>
+					<input name="Range" id="p2d-aa-range" type="text">
+				</div>
+	
+				<p id="p2d-features-label">Features</p>
+
+				<div class="param2drive__input-container">
+					<label for="#p2d-features-mass">
+						<input type="checkbox" id="p2d-features-mass" name="Features" value="MW">
+						Molecular Weight
+					</label>
+				</div>
+
+				<div class="param2drive__input-container">
+					<label for="#p2d-features-ext-coef">
+						<input type="checkbox" id="p2d-features-ext-coef" name="Features" value="EC280">
+						Extinction Coefficient (280nm)
+					</label>
+				</div>
+
+				<div class="param2drive__input-container">
+					<label for="#p2d-features-ext-coef">
+						<input type="checkbox" id="p2d-features-pi" name="Features" value="PI">
+						Isoelectric Point (pI)
+					</label>
+				</div>
+
+				<div class="param2drive__input-container">
+					<label for="#p2d-features-stability">
+						<input type="checkbox" id="p2d-features-stability" name="Features" value="Instability">
+						Predicted Instability
+					</label>
+				</div>
+
+				<button class="param2drive__button">Submit</button>
+
+			</form>
+		</div>
+	</div>
+</div>
+
+</div>
+
+{{ end }}

@@ -9,6 +9,7 @@ import(
 
 	//internal
 	"github.com/tayste5000/tstevens/templates"
+	"github.com/tayste5000/tstevens/routes/projects/param2drive"
 )
 
 func Add(mux *web.Mux) {
@@ -16,6 +17,7 @@ func Add(mux *web.Mux) {
 	/* Endpoint to handler config */
 	mux.Get("/", home)
 	mux.Get("/projects", projects)
+	mux.Handle("/projects/p2drive/*", param2drive.AddRoutes("/projects/p2drive"))
 	mux.Get("/resume", resume)
 	mux.Get("/contact", contact)
 	mux.Get("/site-map", siteMap)

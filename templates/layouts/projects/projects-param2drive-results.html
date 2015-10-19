@@ -1,0 +1,59 @@
+{{ define "title" }}Home{{ end }}
+
+{{ define "body"}}
+
+<div class="header">
+	<h1>Param2Drive</h1>
+</div>
+
+<div class="body__shadow">
+	
+<div class="body">
+	<div class="body__row">
+		<div class="body__item p2drive-results">
+			<div class="p2drive-results__button-container">
+				<button class="p2drive-results__button undo" onclick="window.history.back()">Undo</button>
+				<form action="/projects/p2drive/submit" method="POST">
+					<input type="hidden" name="Name" value="{{ .Name }}">
+					<input type="hidden" name="Range" value="{{ .Range }}">
+					<input type="hidden" name="Sequence" value="{{ .Sequence }}">
+					{{ if .MW }}
+					<input type="hidden" name="MW" value="{{ .MW }}">
+					{{ end }}
+					{{ if .EC280 }}
+					<input type="hidden" name="EC280" value="{{ .EC280 }}">
+					{{ end }}
+					{{ if .PI }}
+					<input type="hidden" name="PI" value="{{ .PI }}">
+					{{ end }}
+					{{ if .Instability }}
+					<input type="hidden" name="Instability" value="{{ .Instability }}">
+					{{ end }}
+					<button class="p2drive-results__button drive">Save to Google Drive <i class="fa fa-save"></i></button>
+				</form>
+			</div>
+			<p class="p2drive-results__text">
+				name: {{ .Name }}<br><br>
+				residues: {{ .Range }}<br><br>
+				sequence:<br><br>
+				{{ .Sequence }}<br><br>
+				{{ if .MW }}
+				Mass: {{ .MW }} kDa<br><br>
+				{{ end }}
+				{{ if .EC280 }}
+				Extinction coefficient: {{ .EC280 }} (units here)<br><br>
+				{{ end }}
+				{{ if .PI }}
+				Isoelectric point: {{ .PI }}<br><br>
+				{{ end }}
+				{{ if .Instability }}
+				Instability: {{ .Instability }}<br><br>
+				{{ end }}
+			</p>
+		</div>
+	</div>
+</div>
+
+</div>
+
+{{ end }}

@@ -23,15 +23,22 @@ func init() {
 
 	templatesDir := "templates/"
 
-	layouts, err := filepath.Glob(templatesDir + "layouts/*.html")
+	layoutsMain, err := filepath.Glob(templatesDir + "layouts/*.html")
 	if err != nil{
 		log.Fatal(err)
 	}
 
-	includes, err := filepath.Glob(templatesDir + "includes/*.html")
+	layoutsProjects, err := filepath.Glob(templatesDir + "layouts/projects/*.html")
 	if err != nil{
 		log.Fatal(err)
 	}	
+
+	layouts := append(layoutsMain, layoutsProjects...)
+
+	includes, err := filepath.Glob(templatesDir + "includes/*.html")
+	if err != nil{
+		log.Fatal(err)
+	}
 
 	for _,layout := range layouts{
 		files := append(includes, layout)

@@ -32,3 +32,14 @@ button::-moz-focus-inner {
 button:focus, button:hover{
 	outline: none;
 }
+
+input[type="text"], textarea{
+	width: 100%;
+	background-color: transparent;
+	border: none;
+	padding: 0;
+
+	&:focus{
+		outline: none;
+	}
+}

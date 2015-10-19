@@ -62,6 +62,7 @@ a{
 
 		@include small{
 			width: auto;
+			width: 150px;
 		}
 	}
 
@@ -208,4 +209,167 @@ a{
 		}
 
 	}
+}
+
+.param2drive{
+	&__flash{
+		border-width: 1px;
+		border-style: solid;
+    border-radius: 5px;
+    font-weight: 700;
+
+    &.error{
+			background-color: #fdd;
+			color: #f77;
+			border-color: #f77;
+		}
+
+		&.success{
+			background-color: #dfd;
+    	color: #7d7;
+    	border-color: #7d7;
+		}
+	}
+
+	&>#p2d-features-label{
+		&.invalid-features{
+			&::before{
+				content:"There must be atleast one feature to compute";
+				color: #f99;
+				font-weight: 700;
+				display: block;
+			}
+		}
+	}
+
+	&__input-container{
+		padding: $gutter / 2 0;
+
+		&>label{
+			transition: color 0.1s;
+			display: block;
+		}
+
+		&.invalid-sequence, &.invalid-range, &.invalid-range-length, &.invalid-name{
+			&>input[type="text"], &>textarea{
+				border-color: #f99;
+				box-shadow: inset 0 0px 1px rgba(0,0,0,0.3), inset 0 1px 2px rgba(0,0,0,0.2), 0 0 8px rgba(255,153,153,0.6);
+			}
+
+			&::before{
+				color: #f99;
+				font-weight: 700;
+			}
+		}
+		
+		&.invalid-name{
+			&::before{
+				content: "Must enter a protein name"
+			}
+		}
+
+		&.invalid-sequence {
+			&::before{
+				content: "Must be a valid amino acid sequence";
+			}
+		}
+
+		&.invalid-range-length{
+			&::before{
+				content: "Range length does not match sequence length";
+			}
+		}
+
+		&.invalid-range {
+			&::before{
+				content: "Must be a residue range of the form #-# eg. 20-68";
+			}
+		}
+
+		&>input[type="text"], &>textarea{
+			@include shadow-inner(2);
+		
+			font-size: inherit;
+			font-family: inherit;
+			border: 1px solid transparent;
+			border-radius: $border-radius;
+			padding: $gutter / 4;
+			transition: border-color 0.1s, box-shadow 0.1s;
+
+			&:focus{
+				border-color: #99f;
+				box-shadow: inset 0 0px 1px rgba(0,0,0,0.3), inset 0 1px 2px rgba(0,0,0,0.2), 0 0 8px rgba(153,153,255,0.6);
+			}
+		}
+	}
+
+	&__button{
+		@extend .shadow-2;
+		@extend .shadow-4-hover;
+
+		border-radius: $border-radius;
+		padding: $gutter / 2;
+
+		&:hover{
+			cursor: pointer;
+		}
+	}
+}
+
+.p2drive-results{
+	&__text{
+		background: #fff;
+	  border: 1px solid #333;
+	  font-family: monospace;
+	  padding: $gutter / 2;
+	}
+
+	&__button-container{
+		@extend .clearfix;
+	}
+
+	&__button{
+		@extend .shadow-2;
+		@extend .shadow-4-hover;
+
+		padding: $gutter / 2;
+		border-radius: $border-radius;
+		transition: color $animation-time, background-color $animation-time, box-shadow $animation-time;
+
+		&:hover{
+			cursor: pointer;
+		}
+
+		&.undo{
+			float: left;
+
+			&:hover, &:focus{
+				background-color: #fff;
+				color: #000;
+			}
+		}
+
+		&.drive{
+			float: right;
+			background-color: #4584EF;
+			color: #eee;
+
+			&:hover, &:focus{
+				background-color: #2A79FF;
+				color: #fdfdfd;
+			}
+		}
+	}
+}
+
+.drive-profile{
+	border-radius: 25px;
+	margin-left: 10px;
+	vertical-align: middle;
+}
+
+hr{
+	border-color: #ccc;
+	border-style: solid;
+	border-top-width:0;
 }

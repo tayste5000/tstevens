@@ -99,7 +99,7 @@ func form(c web.C, w http.ResponseWriter, r *http.Request){
     http.Error(w, err.Error(), http.StatusInternalServerError)
   }
 
-  config.RedirectURL = "http://localhost:8000/projects/p2drive/auth"
+  config.RedirectURL = os.Getenv("P2D_REDIRECT")
 
   ctx := context.Background()
 
@@ -266,7 +266,7 @@ func submit(c web.C, w http.ResponseWriter, r *http.Request){
     http.Error(w, err.Error(), http.StatusInternalServerError)
   }
 
-  config.RedirectURL = "http://localhost:8000/projects/p2drive/auth"
+  config.RedirectURL = os.Getenv("P2D_REDIRECT")
 
   ctx := context.Background()
 
@@ -372,7 +372,7 @@ func auth(c web.C, w http.ResponseWriter, r *http.Request){
     http.Error(w, err.Error(), http.StatusInternalServerError)
   }
 
-  config.RedirectURL = "http://localhost:8000/projects/p2drive/auth"
+  config.RedirectURL = os.Getenv("P2D_REDIRECT")
 
   if csrfResponse == "" || code == ""{
     csrfId, err := uuid.NewV4(); if err != nil{

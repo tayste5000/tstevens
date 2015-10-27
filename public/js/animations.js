@@ -112,7 +112,32 @@ function load(){
 			&& name.value){
 			form.submit();
 		}
-
 	}
-}
 
+	/*
+		auto-add protein range
+	*/
+
+	var fullLengthBtn = document.querySelector("#p2d-full-length");
+
+	fullLengthBtn.addEventListener("click", function(){
+		getSeqLength();
+	});
+
+	function getSeqLength(){
+
+		//first make sure sequence exists and is valid
+		if (!sequence.value.match(seqPattern)){
+			sequence.parentElement.classList.add("invalid-sequence");
+			return;
+		}
+
+		else {
+			sequence.parentElement.classList.remove("invalid-sequence");
+		}
+
+		length = sequence.value.length;
+		range.value = "1-" + String(length);
+	}
+
+}

@@ -346,24 +346,24 @@ a {
     .connect__icon > i {
       font-size: 1.96em;
       line-height: 1.0; }
-    .connect__icon.facebook {
-      background-color: #45619D;
+    .connect__icon.linkedin {
+      background-color: #0077B5;
       color: #eee; }
-      .connect__icon.facebook:hover, .connect__icon.facebook:focus {
-        background-color: #496DBA;
+      .connect__icon.linkedin:hover, .connect__icon.linkedin:focus {
+        background-color: #0086CC;
         color: #fff; }
-    .connect__icon.twitter {
-      background-color: #659FCB;
-      color: #eee; }
-      .connect__icon.twitter:hover, .connect__icon.twitter:focus {
-        background-color: #4D9FDD;
-        color: #fff; }
-    .connect__icon.instagram {
-      background-color: #125688;
-      color: #eee; }
-      .connect__icon.instagram:hover, .connect__icon.instagram:focus {
-        background-color: #1168A8;
-        color: #fdfdfd; }
+    .connect__icon.github {
+      background-color: #eee;
+      color: #333; }
+      .connect__icon.github:hover, .connect__icon.github:focus {
+        background-color: #fdfdfd;
+        color: #1d1d1d; }
+    .connect__icon.medium {
+      background-color: #fdfdfd;
+      color: #1d1d1d; }
+      .connect__icon.medium:hover, .connect__icon.medium:focus {
+        background-color: #fff;
+        color: #000; }
 
 .param2drive__flash {
   border-width: 1px;

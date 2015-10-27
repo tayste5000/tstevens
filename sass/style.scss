@@ -178,33 +178,33 @@ a{
 			line-height: 1.0;
 		}
 	
-		&.facebook{
-			background-color: $facebook-background-color;
-	    color: $facebook-color;
+		&.linkedin{
+			background-color: $linkedin-background-color;
+	    color: $linkedin-color;
 
 	    &:hover, &:focus{
-				background-color: $facebook-background-color-active;
-				color: $facebook-color-active;
+				background-color: $linkedin-background-color-active;
+				color: $linkedin-color-active;
 	    }
 		}
 
-		&.twitter{
-			background-color: $twitter-background-color;
-	    color: $twitter-color;
+		&.github{
+			background-color: $github-background-color;
+	    color: $github-color;
 
 	    &:hover, &:focus{
-				background-color: $twitter-background-color-active;
-				color: $twitter-color-active;
+				background-color: $github-background-color-active;
+				color: $github-color-active;
 	    }
 		}
 
-		&.instagram{
-			background-color: $instagram-background-color;
-	    color: $instagram-color;
+		&.medium{
+			background-color: $medium-background-color;
+	    color: $medium-color;
 
 	    &:hover, &:focus{
-				background-color: $instagram-background-color-active;
-				color: $instagram-color-active;
+				background-color: $medium-background-color-active;
+				color: $medium-color-active;
 	    }
 		}
 

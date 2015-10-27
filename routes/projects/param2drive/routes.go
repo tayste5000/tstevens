@@ -76,9 +76,6 @@ func init() {
 
   secretKey = os.Getenv("SECRET_KEY")
   redirectUrl = os.Getenv("P2D_REDIRECT")
-  
-  log.Print(redirectUrl)
-  log.Print(redirectUrl)
 
   store = sessions.NewCookieStore([]byte(secretKey))
 
@@ -131,20 +128,10 @@ func form(c web.C, w http.ResponseWriter, r *http.Request){
 
   if flashes := session.Flashes("error"); len(flashes) > 0{
     templateData["ErrorFlash"] = flashes[0]
-    log.Print(flashes)
-    log.Print(len(flashes))
-    for _,val := range flashes {
-      log.Print(val)
-    }
   }
 
   if flashes := session.Flashes("success"); len(flashes) > 0{
     templateData["SuccessFlash"] = flashes[0]
-    log.Print(flashes)
-    log.Print(len(flashes))
-    for _,val := range flashes {
-      log.Print(val)
-    }
   }
 
   session.Save(r,w)
@@ -330,12 +317,6 @@ func submit(c web.C, w http.ResponseWriter, r *http.Request){
       return
   } 
 
-  log.Print(createdFile)
-  log.Print(createdFile.DefaultOpenWithLink)
-  log.Print(createdFile.AlternateLink)
-  log.Print(createdFile.EmbedLink)
-  log.Print(createdFile.ExportLinks)
-
   session.AddFlash(createdFile.AlternateLink, "success")
   session.Save(r,w)
 
@@ -343,8 +324,6 @@ func submit(c web.C, w http.ResponseWriter, r *http.Request){
 }
 
 func auth(c web.C, w http.ResponseWriter, r *http.Request){
-
-  log.Print(r.URL.String())
 
 	session, err := store.Get(r, "p2drive")
   if err != nil {

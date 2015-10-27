@@ -65,6 +65,7 @@ func (od outputData) text() string{
 
 var store *sessions.CookieStore
 var secretKey string
+var redirectUrl string
 
 func init() {
   err := godotenv.Load()
@@ -74,6 +75,7 @@ func init() {
   }
 
   secretKey = os.Getenv("SECRET_KEY")
+  redirectUrl = os.Getenv("P2D_REDIRECT")
 
   store = sessions.NewCookieStore([]byte(secretKey))
 
@@ -99,7 +101,7 @@ func form(c web.C, w http.ResponseWriter, r *http.Request){
     http.Error(w, err.Error(), http.StatusInternalServerError)
   }
 
-  config.RedirectURL = os.Getenv("P2D_REDIRECT")
+  config.RedirectURL = redirectUrl
 
   ctx := context.Background()
 
@@ -266,7 +268,7 @@ func submit(c web.C, w http.ResponseWriter, r *http.Request){
     http.Error(w, err.Error(), http.StatusInternalServerError)
   }
 
-  config.RedirectURL = os.Getenv("P2D_REDIRECT")
+  config.RedirectURL = redirectUrl
 
   ctx := context.Background()
 
@@ -372,7 +374,7 @@ func auth(c web.C, w http.ResponseWriter, r *http.Request){
     http.Error(w, err.Error(), http.StatusInternalServerError)
   }
 
-  config.RedirectURL = os.Getenv("P2D_REDIRECT")
+  config.RedirectURL = redirectUrl
 
   if csrfResponse == "" || code == ""{
     csrfId, err := uuid.NewV4(); if err != nil{

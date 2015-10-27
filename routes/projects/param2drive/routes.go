@@ -76,6 +76,8 @@ func init() {
 
   secretKey = os.Getenv("SECRET_KEY")
   redirectUrl = os.Getenv("P2D_REDIRECT")
+  
+  log.Print(redirectUrl)
   log.Print(redirectUrl)
 
   store = sessions.NewCookieStore([]byte(secretKey))

@@ -484,3 +484,29 @@ hr {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   border-right-width: 0; }
+
+#dialogue {
+  margin: 0.5em;
+  padding: 0.5em;
+  border: 1px solid #999;
+  border-radius: 3px;
+  background-color: rgba(245, 245, 245, 0.8); }
+  #dialogue > button {
+    background-color: #59f;
+    padding: 0.5em;
+    color: #fdfdfd;
+    border: 1px solid #999;
+    border-radius: 3px;
+    -webkit-transition: background-color 0.3s;
+            transition: background-color 0.3s; }
+    #dialogue > button:hover, #dialogue > button:focus {
+      background-color: #6af;
+      cursor: pointer; }
+  #dialogue #prev {
+    float: left; }
+  #dialogue #next {
+    float: right; }
+  @media (min-width: 768px) {
+    #dialogue {
+      width: 50%;
+      margin-left: 25%; } }

@@ -402,3 +402,35 @@ hr{
   border-bottom-right-radius: 0;
   border-right-width: 0;
 }
+
+#dialogue{
+	margin: $gutter / 4;
+	padding: $gutter / 4;
+	border: 1px solid #999;
+	border-radius: $border-radius;
+	background-color: rgba(245,245,245,0.8);
+	>button{
+		background-color: #59f;
+		padding: $gutter / 4;
+		color: #fdfdfd;
+		border: 1px solid #999;
+		border-radius: $border-radius;
+		transition: background-color $animation-time;
+
+		&:hover, &:focus{
+			background-color:#6af;
+			cursor: pointer;
+		}
+	}
+	#prev{
+		float:left;
+	}
+	#next{
+		float:right;
+	}
+
+	@include small{
+		width: 50%;
+		margin-left: 25%;
+	}
+}

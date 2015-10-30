@@ -236,6 +236,7 @@ a {
 
 .main {
   position: relative;
+  overflow-x: hidden;
   padding-top: 4em; }
 
 .body {

@@ -235,6 +235,7 @@ a {
         font-size: 0; } }
 
 .main {
+  position: relative;
   padding-top: 4em; }
 
 .body {
@@ -487,6 +488,8 @@ hr {
 
 #dialogue {
   position: absolute;
+  top: 0;
+  z-index: 500;
   -webkit-transform: translateZ(0);
           transform: translateZ(0);
   margin: 0.5em;

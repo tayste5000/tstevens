@@ -334,16 +334,16 @@ return {
       prev.addEventListener("click", function(){
         presentation.estrogen.start();
       });
+      
+      viewer.hide("*")
+      viewer.cartoon("estrogen", structures["estrogen"])
+      window.setTimeout(function(){viewer.ballsAndSticks("estrogen", structures["estrogen"].select({"rname":"EST"}));},500);
 
       viewer.setRotation([-0.4869979918003082, -0.7540156841278076, 0.4407404363155365, 0,
         -0.8724094033241272, 0.44379809498786926, -0.20472747087478638, 0,
         -0.04123280569911003, -0.4842182993888855, -0.8739356994628906, 0,
         0, 0, 0, 1], 300);
-
       viewer.setZoom(50,300);
-      viewer.hide("*")
-      viewer.cartoon("estrogen", structures["estrogen"])
-      window.setTimeout(function(){viewer.ballsAndSticks("estrogen", structures["estrogen"].select({"rname":"EST"}));},500);
 
     },
     "tamoxifen": function estrogenStart(){

@@ -286,11 +286,11 @@ return {
         else {
           viewer.hide("*")
           viewer.ballsAndSticks("lysozyme", structures["lysozyme"].select({"rnumRange":[1,count+1]}),{radius: 0.2});
-          count += 2;
+          count += 5;
           lysozymeLoop();
         }
 
-      },100)
+      },200)
     }
   },
   "estrogen": {

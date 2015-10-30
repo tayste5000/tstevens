@@ -406,11 +406,8 @@ hr{
 
 #dialogue{
 	@extend .clearfix;
-	// @include small{
-	// 	position: absolute;
-	// }
 	position: absolute;
-	top:0;
+	top:$navbar-height;
 	z-index: 500;
 	transform: translateZ(0);
 

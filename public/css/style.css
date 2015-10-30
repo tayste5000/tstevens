@@ -488,7 +488,7 @@ hr {
 
 #dialogue {
   position: absolute;
-  top: 0;
+  top: 4em;
   z-index: 500;
   -webkit-transform: translateZ(0);
           transform: translateZ(0);

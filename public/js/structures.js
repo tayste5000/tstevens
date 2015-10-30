@@ -19,6 +19,8 @@ dialogue = document.querySelector("#dialogue");
 
 viewer.on("viewerReady", function(){
 
+  console.log("ready");
+
   dialogue.innerHTML += "<button type=\"button\" id=\"start\">Start</button>";
 
   var startBtn = document.querySelector("#start");
@@ -28,12 +30,13 @@ viewer.on("viewerReady", function(){
   startBtn.addEventListener("click", function(){
     presentation.start();
   });
-
 })
 
 }
 
 function makePresentation(dialogue){
+
+console.log("presentation is made")
 
 var count;
 var reverse = false;
@@ -42,6 +45,7 @@ var structures = {};
 
 /*init*/
 loadStructure = function loadStructure(filename,structureName){
+  console.log("getting " + structureName)
   pv.io.fetchPdb("/public/pdbs/" + filename, function(output){structures[structureName] = output;});
 }
 
@@ -59,6 +63,8 @@ loadStructure("ss/estrogen-4HT.pdb", "tamoxifen");
 /*return presentation object*/
 return {
   "start": function start(){
+
+    console.log("hey");
 
     dialogue.innerHTML = "<p>Proteins perform many functions in our cells. " +
       "Proteins are made up of small molecules called amino acids, that contain carbon, <span style=\"color:blue\">nitrogen</span>, and <span style=\"color:red\">oxygen</span>." +

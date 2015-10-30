@@ -337,7 +337,7 @@ return {
       
       viewer.hide("*")
       viewer.cartoon("estrogen", structures["estrogen"])
-      window.setTimeout(function(){viewer.ballsAndSticks("estrogen", structures["estrogen"].select({"rname":"EST"}));},500);
+      window.setTimeout(function(){viewer.ballsAndSticks("estrogen", structures["estrogen"].select({"rname":"EST"}), {"color":pv.color.uniform("yellow")});},500);
 
       viewer.setRotation([-0.4869979918003082, -0.7540156841278076, 0.4407404363155365, 0,
         -0.8724094033241272, 0.44379809498786926, -0.20472747087478638, 0,
@@ -347,7 +347,7 @@ return {
 
     },
     "tamoxifen": function estrogenStart(){
-      dialogue.innerHTML = "<p>Researchers have used this knowledge to design tamoxifen, a small molecule that stops the overactivation of the extrogen receptor, and can be used to treat breast cancer.</p>" +
+      dialogue.innerHTML = "<p>Tamoxifin is a common treatment for hormone related breast cancer. It works by binding to the estrogen binding pocket and forcing the receptor into an inactive shape.</p>" +
       "<button type=\"button\" id=\"prev\">Previous</button>";
 
       var prev = document.querySelector("#prev");
@@ -368,7 +368,7 @@ return {
       },500);
 
       window.setTimeout(function(){
-        viewer.ballsAndSticks("tamoxifin", structures["tamoxifen"].select({"rname":"OHT"}));
+        viewer.ballsAndSticks("tamoxifin", structures["tamoxifen"].select({"rname":"OHT"}),{"color":pv.color.uniform("yellow")});
       },500)
     }
   }

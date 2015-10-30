@@ -1,6 +1,7 @@
 window.addEventListener('load', setup);
 var viewer;
 var presentation;
+var dialogue;
 
 function setup() {
 
@@ -12,18 +13,23 @@ var options = {
   quality: 'medium',
   outlineWidth: 1.0
 };
-  
-console.log(document.getElementById("viewer").offsetWidth)
 
 viewer = pv.Viewer(document.getElementById('viewer'), options);
-var startBtn = document.querySelector("#start");
-var dialogue = document.querySelector("#dialogue");
+dialogue = document.querySelector("#dialogue");
 
-presentation = makePresentation(dialogue);
+viewer.on("viewerReady", function(){
 
-startBtn.addEventListener("click", function(){
-  presentation.start();
-});
+  dialogue.innerHTML += "<button type=\"button\" id=\"start\">Start</button>";
+
+  var startBtn = document.querySelector("#start");
+
+  presentation = makePresentation(dialogue);
+
+  startBtn.addEventListener("click", function(){
+    presentation.start();
+  });
+
+})
 
 }
 

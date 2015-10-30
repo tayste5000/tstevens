@@ -28,6 +28,7 @@ viewer.on("viewerReady", function(){
   presentation = makePresentation(dialogue);
 
   startBtn.addEventListener("click", function(){
+    console.log("starting")
     presentation.start();
   });
 })

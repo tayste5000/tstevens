@@ -348,12 +348,17 @@ return {
     },
     "tamoxifen": function estrogenStart(){
       dialogue.innerHTML = "<p>Tamoxifin is a common treatment for hormone related breast cancer. It works by binding to the estrogen binding pocket and forcing the receptor into an inactive shape.</p>" +
-      "<button type=\"button\" id=\"prev\">Previous</button>";
+      "<button type=\"button\" id=\"prev\">Previous</button>" + 
+      "<button type=\"button\" id=\"next\">Next</button>";
 
       var prev = document.querySelector("#prev");
+      var next = document.querySelector("#next");
 
       prev.addEventListener("click", function(){
         presentation.estrogen.pocket();
+      });
+      next.addEventListener("click", function(){
+        presentation.end();
       });
 
       viewer.setRotation([-0.21546663343906403, -0.8086357712745667, 0.5473734736442566, 0,
@@ -371,6 +376,19 @@ return {
         viewer.ballsAndSticks("tamoxifin", structures["tamoxifen"].select({"rname":"OHT"}),{"color":pv.color.uniform("yellow")});
       },500)
     }
+  },
+  "end": function end(){
+    dialogue.innerHTML = "<p>I hope that you have enjoyed this interactive presentation on structural biology. " + 
+    "<a href=\"/projects/structures/info\">For more resources on learning about structural biology, click here.</a><br>" + 
+    "<p>If you are a structural biologist and would like to collaborate on an interactive presentation to help others learn about " +
+    "your research and why it is important to society <a href=\"/contact\">please get in touch with me.</a></p>" +
+    "<button type=\"button\" id=\"restart\">Restart</button>";
+
+    var restart = document.querySelector("#restart");
+
+    restart.addEventListener("click", function(){
+      presentation.start();
+    })
   }
 };
 }

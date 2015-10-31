@@ -18,6 +18,7 @@ func Add(mux *web.Mux) {
 	mux.Get("/", home)
 	mux.Get("/projects", projects)
 	mux.Get("/projects/structures", structures)
+	mux.Get("/projects/structures/info", structuresInfo)
 	mux.Handle("/projects/p2drive/*", param2drive.AddRoutes("/projects/p2drive"))
 	mux.Get("/contact", contact)
 	mux.Get("/site-map", siteMap)
@@ -44,6 +45,13 @@ func projects(c web.C, w http.ResponseWriter, r *http.Request){
 func structures(c web.C, w http.ResponseWriter, r *http.Request){
 
 	if err := templates.Render(w, "projects-structures.html", nil); err != nil {
+	  http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+}
+
+func structuresInfo(c web.C, w http.ResponseWriter, r *http.Request){
+
+	if err := templates.Render(w, "projects-structures-info.html", nil); err != nil {
 	  http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 }

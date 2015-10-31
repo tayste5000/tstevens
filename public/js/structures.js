@@ -253,7 +253,7 @@ return {
 
       prev.addEventListener("click", function(){
         presentation.lysozyme.stop = true;
-        window.setTimeout(function(){presentation.helix.start();},300);
+        window.setTimeout(function(){presentation.helix.start();},800);
       });
 
       viewer.hide("*");
@@ -264,33 +264,12 @@ return {
         -0.985134482383728, -0.054737888276576996, -0.16282692551612854, 0,
         0, 0, 0, 1], 300);
 
-      lysozymeCount = structures["lysozyme"].residueCount();
-
-      presentation.lysozyme.stop = false;
-      viewer.ballsAndSticks("lysozyme", structures["lysozyme"].select({"rnumRange":[1,1]}));
-      count = 1;
-
-      presentation.lysozyme.loop();
-    },
-    "stop": false,
-    "loop": function lysozymeLoop(){
-      if (presentation.lysozyme.stop) return;
-
+      viewer.ballsAndSticks("lysozyme", structures["lysozyme"]);
       window.setTimeout(function(){
-
-        if (count >= lysozymeCount + 1) {
-          viewer.hide("*")
-          viewer.cartoon("lysozyme", structures["lysozyme"]);
-        }
-
-        else {
-          viewer.hide("*")
-          viewer.ballsAndSticks("lysozyme", structures["lysozyme"].select({"rnumRange":[1,count+1]}),{radius: 0.2});
-          count += 10;
-          lysozymeLoop();
-        }
-
-      },250)
+        viewer.hide("*");
+        viewer.cartoon("lysozyme", structures["lysozyme"]);
+      },1000)
+      
     }
   },
   "estrogen": {

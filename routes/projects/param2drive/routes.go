@@ -46,7 +46,6 @@ type outputData struct{
 	MW						float32
 	EC280					float32
 	PI 						float32
-	Instability		float32
 }
 
 func (od outputData) text() string{
@@ -58,7 +57,6 @@ func (od outputData) text() string{
   if od.MW != 0 {output += "\n\nMW: " + fmt.Sprint(od.MW) + " Da"}
   if od.EC280 != 0 {output += "\n\nEC280: " + fmt.Sprint(od.EC280) + " 1/(M*cm)"}
   if od.PI != 0 {output += "\n\npI: " + fmt.Sprint(od.PI)}
-  if od.Instability != 0 {output += "\n\nInstability Index: " + fmt.Sprint(od.Instability)}
 
   return output
 }
@@ -96,7 +94,11 @@ func form(c web.C, w http.ResponseWriter, r *http.Request){
     http.Error(w, err.Error(), http.StatusInternalServerError)
   }
 
-  config, err := google.ConfigFromJSON(b, drive.DriveScope)
+  config, err := google.ConfigFromJSON(b,
+    drive.DriveMetadataReadonlyScope,
+    drive.DriveFileScope,
+    plus.UserinfoProfileScope)
+
   if err != nil {
     http.Error(w, err.Error(), http.StatusInternalServerError)
   }
@@ -253,7 +255,11 @@ func submit(c web.C, w http.ResponseWriter, r *http.Request){
     http.Error(w, err.Error(), http.StatusInternalServerError)
   }
 
-  config, err := google.ConfigFromJSON(b, drive.DriveScope, drive.DriveAppdataScope, drive.DriveAppsReadonlyScope, drive.DriveFileScope)
+  config, err := google.ConfigFromJSON(b,
+    drive.DriveMetadataReadonlyScope,
+    drive.DriveFileScope,
+    plus.UserinfoProfileScope)
+
   if err != nil {
     http.Error(w, err.Error(), http.StatusInternalServerError)
   }
@@ -280,7 +286,6 @@ func submit(c web.C, w http.ResponseWriter, r *http.Request){
     http.Error(w, err.Error(), http.StatusInternalServerError)
   }
 
-  //TODO: stop doing bootleg shit like this
   //TODO: if there is a deleted param2drive folder this fails
   if len(driveList.Items) > 0 {
     parentId = driveList.Items[0].Id
@@ -300,7 +305,7 @@ func submit(c web.C, w http.ResponseWriter, r *http.Request){
   //title file protein name-range-date
   newFile := drive.File{
     MimeType: "text/plain",
-    Title: "p2drive.txt",
+    Title: toSubmit.Name + ".txt",
     Parents: parentFolder,
   }
 
@@ -345,11 +350,8 @@ func auth(c web.C, w http.ResponseWriter, r *http.Request){
   }
 
   config, err := google.ConfigFromJSON(b,
-    drive.DriveScope,
-    drive.DriveAppdataScope,
-    drive.DriveAppsReadonlyScope,
+    drive.DriveMetadataReadonlyScope,
     drive.DriveFileScope,
-    plus.PlusMeScope,
     plus.UserinfoProfileScope)
 
   if err != nil {

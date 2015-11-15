@@ -96,7 +96,7 @@ func form(c web.C, w http.ResponseWriter, r *http.Request){
     http.Error(w, err.Error(), http.StatusInternalServerError)
   }
 
-  config, err := google.ConfigFromJSON(b, drive.DriveScope, drive.DriveAppdataScope, drive.DriveAppsReadonlyScope, drive.DriveFileScope)
+  config, err := google.ConfigFromJSON(b, drive.DriveScope)
   if err != nil {
     http.Error(w, err.Error(), http.StatusInternalServerError)
   }

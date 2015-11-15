@@ -430,7 +430,7 @@ a {
   background: #fff;
   border: 1px solid #333;
   font-family: monospace;
-  word-break: break-work;
+  word-break: break-word;
   padding: 1em; }
 
 .p2drive-results__button {

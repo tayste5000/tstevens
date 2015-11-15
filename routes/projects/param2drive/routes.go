@@ -253,7 +253,7 @@ func submit(c web.C, w http.ResponseWriter, r *http.Request){
     http.Error(w, err.Error(), http.StatusInternalServerError)
   }
 
-  config, err := google.ConfigFromJSON(b,  drive.DriveScope)
+  config, err := google.ConfigFromJSON(b, drive.DriveScope, drive.DriveAppdataScope, drive.DriveAppsReadonlyScope, drive.DriveFileScope)
   if err != nil {
     http.Error(w, err.Error(), http.StatusInternalServerError)
   }
@@ -344,7 +344,13 @@ func auth(c web.C, w http.ResponseWriter, r *http.Request){
     http.Error(w, err.Error(), http.StatusInternalServerError)
   }
 
-  config, err := google.ConfigFromJSON(b, drive.DriveScope)
+  config, err := google.ConfigFromJSON(b,
+    drive.DriveScope,
+    drive.DriveAppdataScope,
+    drive.DriveAppsReadonlyScope,
+    drive.DriveFileScope,
+    plus.PlusMeScope,
+    plus.UserinfoProfileScope)
 
   if err != nil {
     http.Error(w, err.Error(), http.StatusInternalServerError)

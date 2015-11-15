@@ -16,7 +16,10 @@ if "MW" in inp["Options"]:
 
 if "EC280" in inp["Options"]:
 	aa_count = X.count_amino_acids()
-	data["EC280"] = aa_count["Y"] + 5500 * aa_count["W"]
+	if "hasDisulfide" in inp["Options"]:
+		data["EC280"] = 1490 * aa_count["Y"] + 5500 * aa_count["W"] + 62.5 * aa_count["C"]
+	else:
+		data["EC280"] = 1490 * aa_count["Y"] + 5500 * aa_count["W"]
 
 if "PI" in inp["Options"]:
 	data["PI"] = X.isoelectric_point()

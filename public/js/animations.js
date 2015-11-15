@@ -29,7 +29,7 @@ function load(){
 	var features = document.querySelectorAll("input[name=\"Features\"]");
 	var featuresLabel = document.querySelector("#p2d-features-label");
 	var seqPattern = new RegExp("^([AaCcDdEeFfGgHhIiKkLlMmNnPpQqRrSsTtUuVvWwYy]+)$");
-	var rangePattern = new RegExp("^([0-9]+)-([0-9]+)$")
+	var rangePattern = new RegExp("^([0-9]+)-([0-9]+)$");
 
 	form.addEventListener('submit',function(e){
 		validate(e);
@@ -47,6 +47,25 @@ function load(){
 				var itemCount = collapseList.childElementCount;
 				navbar.style.height = String((itemCount + 1) * baseNavHeight) + 'em';
 				break;
+		}
+	}
+
+	/*
+	toggle disulfide checkbox
+	*/
+
+	var ECCheck = document.querySelector("#p2d-features-ext-coef");
+	var DisulfideCheck = document.querySelector("#p2d-features-disulfide");
+
+	ECCheck.addEventListener("click", toggleDisulfide);
+
+	function toggleDisulfide(){
+		if (ECCheck.checked){
+			DisulfideCheck.disabled = false;
+		}
+
+		else {
+			DisulfideCheck.disabled = true;
 		}
 	}
 

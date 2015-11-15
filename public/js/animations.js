@@ -55,6 +55,7 @@ function load(){
 		e.stopPropagation();
 		e.preventDefault();
 
+		//remove newlines
 		if (sequence.value.includes("\n")){
 			sequence.value = sequence.value.split("\n").join("");
 		}

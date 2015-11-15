@@ -1,6 +1,7 @@
 /* link colorss */
 a{
 	color: $link-color;
+	transition: color $animation-time;
 
 	&:hover, &:focus{
 		color: $link-color-active;

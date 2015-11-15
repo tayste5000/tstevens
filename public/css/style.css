@@ -147,11 +147,13 @@ h4 {
 
 /* link colorss */
 a {
-  color: initial; }
+  color: #66e;
+  -webkit-transition: color 0.3s;
+          transition: color 0.3s; }
   a:hover, a:focus {
-    color: initial; }
+    color: #44e; }
   a:visited {
-    color: initial; }
+    color: #22c; }
 
 .navbar {
   position: fixed;

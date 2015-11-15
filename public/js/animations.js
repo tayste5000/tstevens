@@ -55,6 +55,15 @@ function load(){
 		e.stopPropagation();
 		e.preventDefault();
 
+		if (seqence.value.includes("\n")){
+			sequence.value = sequence.value.split("\n").join("");
+		}
+
+		if (seqence.value.includes("\r")){
+			sequence.value = sequence.value.split("\r").join("");
+		}
+
+
 		if (!name.value){
 			name.parentElement.classList.add("invalid-name");
 		}

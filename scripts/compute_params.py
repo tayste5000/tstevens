@@ -21,7 +21,4 @@ if "EC280" in inp["Options"]:
 if "PI" in inp["Options"]:
 	data["PI"] = X.isoelectric_point()
 
-if "Instability" in inp["Options"]:
-	data["Instability"] = X.instability_index()
-
 print json.dumps(data)

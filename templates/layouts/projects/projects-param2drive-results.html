@@ -41,13 +41,10 @@
 				Mass: {{ .MW }} kDa<br><br>
 				{{ end }}
 				{{ if .EC280 }}
-				Extinction coefficient: {{ .EC280 }} (units here)<br><br>
+				Extinction coefficient: {{ .EC280 }} (M<sup>-1</sup>cm<sup>-1</sup>)<br><br>
 				{{ end }}
 				{{ if .PI }}
 				Isoelectric point: {{ .PI }}<br><br>
-				{{ end }}
-				{{ if .Instability }}
-				Instability: {{ .Instability }}<br><br>
 				{{ end }}
 			</p>
 		</div>

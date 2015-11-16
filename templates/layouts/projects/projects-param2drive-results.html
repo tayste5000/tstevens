@@ -29,6 +29,9 @@
 					{{ if .Instability }}
 					<input type="hidden" name="Instability" value="{{ .Instability }}">
 					{{ end }}
+					{{ if .AACont }}
+					<input type="hidden" name="AACont" value='{{ print "{" }}{{ range $aa, $percentage := .AACont }}{{ if eq $aa "Y" }}"{{ $aa }}":{{ $percentage }}{{else}}"{{ $aa }}":{{ $percentage }},{{ end }}{{ end }}{{ print "}" }}'>
+					{{ end }}
 					<button class="p2drive-results__button drive">Save to Google Drive <i class="fa fa-save"></i></button>
 				</form>
 			</div>
@@ -45,6 +48,12 @@
 				{{ end }}
 				{{ if .PI }}
 				Isoelectric point: {{ .PI }}<br><br>
+				{{ end }}
+				{{ if .AACont }}
+				Amino acid percentages:<br><br>
+					{{ range $aa, $percentage := .AACont }}
+					{{ $aa }} - {{ $percentage }}%<br>
+					{{ end }}
 				{{ end }}
 			</p>
 		</div>

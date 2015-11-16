@@ -24,4 +24,8 @@ if "EC280" in inp["Options"]:
 if "PI" in inp["Options"]:
 	data["PI"] = X.isoelectric_point()
 
+if "AACont" in inp["Options"]:
+	ratios = X.get_amino_acids_percent()
+	data["AACont"] = {aa: ratios[aa] * 100. for aa in ratios}
+
 print json.dumps(data)

@@ -46,6 +46,7 @@ type outputData struct{
 	MW						float32
 	EC280					float32
 	PI 						float32
+  AACont        map[string]float32
 }
 
 func (od outputData) text() string{
@@ -57,6 +58,13 @@ func (od outputData) text() string{
   if od.MW != 0 {output += "\n\nMW: " + fmt.Sprint(od.MW) + " Da"}
   if od.EC280 != 0 {output += "\n\nEC280: " + fmt.Sprint(od.EC280) + " 1/(M*cm)"}
   if od.PI != 0 {output += "\n\npI: " + fmt.Sprint(od.PI)}
+  if od.AACont != nil {
+    output += "\n\nAmino acid percentages:\n\n"
+    for aa, percentage := range od.AACont{
+      output += fmt.Sprintf("%s - %.1f%%\n", aa, percentage)
+    }
+
+  }
 
   return output
 }
@@ -249,6 +257,13 @@ func submit(c web.C, w http.ResponseWriter, r *http.Request){
 	toSubmit := new(outputData)
 	decoder := schema.NewDecoder()
 	decoder.Decode(toSubmit,r.Form)
+
+  if AACont := r.Form.Get("AACont"); AACont != ""{
+    err := json.Unmarshal([]byte(AACont), &toSubmit.AACont)
+    if err != nil{
+      log.Print(err)
+    } 
+  }
 
   b, err := ioutil.ReadFile("client_secret.json")
   if err != nil {
